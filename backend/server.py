@@ -19,7 +19,7 @@ def main():
         # userName = "jolf"
         # userTag = "KR1"
         url = "https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/jolf/KR1?api_key=RGAPI-625160d1-8730-4bb1-abd1-a8fa38c9dee5"
-        res = requests.get(url, headers={"X-Riot-Token": API_key })
+        res = requests.get(url)
         if res.status_code == 200:
             return jsonify({'data': res.text})
         
