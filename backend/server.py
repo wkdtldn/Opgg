@@ -8,8 +8,8 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-infoSet = []
-API_key = 'RGAPI-625160d1-8730-4bb1-abd1-a8fa38c9dee5';
+userData = list()
+API_key = 'RGAPI-d6b46f86-ce5f-498b-a30a-f3660691f317';
 
 class UserInfo:
     def __init__(self, id, puuid, summonerid, name, tag):
@@ -19,21 +19,32 @@ class UserInfo:
         self.name = name
         self.tag = tag
 
-@app.route('/', methods=['GET', 'POST'])
+
+
+@app.route('/',methods=['GET', 'POST'])
 def main():
-    return "Hello World"
-def setUser():
-    userName = input("닉네임: ")
-    userTag = input("테그: ")
+    userName = "jolf"
+    userTag = "KR1"
     res_puuid = requests.get("https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + userName + "/" + userTag + "?api_key=" + API_key)
-    res_id = requests.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + userName + "?api_key=" + API_key)
-    res_summonerid = requests.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + userName + "?api_key=" + API_key)
-    data = list()
-    data.append(res_puuid.text)
+    if res_puuid.status_code == 200:
+        res_id = requests.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + userName + "?api_key=" + API_key)
+        res_summonerid = requests.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + userName + "?api_key=" + API_key)
+        collect(res_puuid,"puuid")
+        collect(res_id,"id")
+        collect(res_summonerid,"summonerid")
+        return jsonify(userData)
+    else:
+        return jsonify({'Result' : False})
+
+def collect(item,name):
+    data = item.text
     data = json.loads(data)
-    if res.status_code == 200:
-        infoSet.append({"puuid" : data['puuid']})
-        return jsonify({"puuid": data['puuid']})
+    userData.append({ name : data })
+    return jsonify({ name : data})
+
+@app.route('/index', methods=['GET', 'POST'])
+def index():
+    return "Hello World"
 
 if __name__ == '__main__':
     app.run(debug=True)
