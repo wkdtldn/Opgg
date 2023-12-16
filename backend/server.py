@@ -5,15 +5,237 @@ import requests
 import pandas as pd
 import json
 
+
 app = Flask(__name__)
 CORS(app)
-
 Data = list()
-API_key = 'RGAPI-d6b46f86-ce5f-498b-a30a-f3660691f317';
+API_key = 'RGAPI-2fcadb09-9680-45f5-89f6-b350eb71efac';
 
 ## UserInfo에 들어갈 Data
 userData = { "level" : "", "name" : "", "tag" : "", "tier" : "" , "rank" : "" }
-MatchInfo = list()
+MatchInfo = [
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+    {
+        "team" : "",
+        "lane" : "",
+            "name" : "",
+            "tag" : "",
+            "puuid" : "",
+            "championName" : "",
+            "championLevel" : "",
+            "kills" : "",
+            "deaths" : "",
+            "assist" : "",
+            "damageToChampions" : "",
+            "damageTaken" : "",
+            "cs" : "" ,
+            "items" :
+                {
+                    0 : "", 1 : "",
+                    2 : "", 3 : "",
+                    4 : "", 5 : "",
+                    6 : ""
+                },
+    },
+]
+
 
 class UserInfo:
     def __init__(self, level, name, tag, tier, rank, match):
@@ -40,16 +262,18 @@ def main():
         user_info_collect(res_matchID)        
         res_matchInfo = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + Data[3][0] + "?api_key=" + API_key)
         user_info_collect(res_matchInfo)
-        userData["level"] = Data[1]["summonerLevel"]
-        userData["name"] = Data[0]["gameName"]
-        userData["tag"] = Data[0]["tagLine"]
-        userData["tier"] = Data[2][0]["tier"]
-        userData["rank"] = Data[2][0]["rank"]
-        MatchInfo = Data[4]
-        print(MatchInfo)
+        user_info_setup(Data)
         return jsonify(userData)
     else:
         return jsonify({'Result' : False})
+
+def user_info_setup(Data):
+    userData["level"] = Data[1]["summonerLevel"]
+    userData["name"] = Data[0]["gameName"]
+    userData["tag"] = Data[0]["tagLine"]
+    userData["tier"] = Data[2][0]["tier"]
+    userData["rank"] = Data[2][0]["rank"]
+    
 
 def user_info_collect(item):
     data = item.text
@@ -63,4 +287,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
