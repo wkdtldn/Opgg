@@ -7,7 +7,10 @@ import json
 import UserData;
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 CORS(app)
+
+
 
 API_key = 'RGAPI-086af0b8-7e66-48bd-badb-9b06335a69b0';
 
@@ -45,7 +48,8 @@ def main():
         match_info_collect(res, "matchID")        
         res_match = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + match["matchID"] + "?api_key=" + API_key)
         match_info_collect(res_match, "matchInfo")
-        return jsonify(UserData.user_data_set(Data))
+        UserData.user_data_set(Data)
+        return json.dumps(UserData.match_data_set(match),ensure_ascii = False)
     else:
         return jsonify({'Result' : False})
 

@@ -24,4 +24,4 @@ function UserResult() {
   );
 }
 
-export {UserInput, UserResult};
+export { UserInput, UserResult };
