@@ -7,8 +7,7 @@ import json
 import UserData;
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
 
 
