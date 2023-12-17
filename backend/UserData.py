@@ -223,12 +223,11 @@ matchInfo = [
 ]
 
 def user_data_set(data):
-    userInfo["level"] = data[1]["summonerLevel"]
-    userInfo["name"] = data[0]["gameName"]
-    userInfo["tag"] = data[0]["tagLine"]
-    userInfo["tier"] = data[2][0]["tier"]
-    userInfo["rank"] = data[2][0]["rank"]
+    userInfo["level"] = data["summonerLevel"]
+    userInfo["name"] = data["gameName"]
+    userInfo["tag"] = data["tagLine"]
+    userInfo["tier"] = data["tier"]
+    userInfo["rank"] = data["rank"]
     return userInfo
     
-def match_data_set(data):
-    print(data)
+# def match_data_set(data):

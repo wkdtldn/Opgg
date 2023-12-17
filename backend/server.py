@@ -13,7 +13,7 @@ API_key = 'RGAPI-086af0b8-7e66-48bd-badb-9b06335a69b0';
 
 Data = {"puuid" : "", "gameName" : "" , "tagLine" : "", "id" : "", "summonerLevel" : "", "accountId" : "", "tier" : "", "rank" : "", "matchID" : ""}
 
-matchData = list()
+match = { "matchID" : "", "matchInfo" : ""}
 
 class UserInfo:
     def __init__(self, level, name, tag, tier, rank, match):
@@ -39,12 +39,12 @@ def main():
         user_info_collect(res,"accountId")
         user_info_collect(res,"summonerLevel")
         res = requests.get("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + Data["id"] + "?api_key=" + API_key)
-        user_info_collect(res[0], "tier")
-        user_info_collect(res[0], "rank")
+        user_info_collect(res, "tier")
+        user_info_collect(res, "rank")
         res = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/" + Data["puuid"] +"/ids?type=normal&count=1&api_key=" + API_key)
-        user_info_collect(res,"matchID")        
-        res_match = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + Data["matchID"] + "?api_key=" + API_key)
-        match_info_collect(res_match)
+        match_info_collect(res, "matchID")        
+        res_match = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + match["matchID"] + "?api_key=" + API_key)
+        match_info_collect(res_match, "matchInfo")
         return jsonify(UserData.user_data_set(Data))
     else:
         return jsonify({'Result' : False})
@@ -52,13 +52,18 @@ def main():
 def user_info_collect(item, name):
     data = item.text
     data = json.loads(data)
-    Data[name] = data[name]
-    print(Data)
+    if str(type(data)) == "<class 'dict'>":
+        Data[name] = data[name]
+    else:
+        Data[name] = data[0][name]
 
-def match_info_collect(item):
+def match_info_collect(item,name):
     data = item.text
     data = json.loads(data)
-    matchData.append(data)
+    if str(type(data)) == "<class 'dict'>":
+        match[name] = data
+    else:
+        match[name] = data[0]
 
 
 if __name__ == '__main__':
