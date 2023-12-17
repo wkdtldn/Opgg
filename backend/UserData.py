@@ -228,3 +228,7 @@ def user_data_set(data):
     userInfo["tag"] = data[0]["tagLine"]
     userInfo["tier"] = data[2][0]["tier"]
     userInfo["rank"] = data[2][0]["rank"]
+    return userInfo
+    
+def match_data_set(data):
+    print(data)
