@@ -15,6 +15,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -22,6 +25,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -38,6 +42,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -45,6 +52,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -61,6 +69,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -68,6 +79,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -84,6 +96,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -91,6 +106,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -107,6 +123,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -114,6 +133,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -130,6 +150,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -137,6 +160,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -153,6 +177,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -160,6 +187,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -176,6 +204,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -183,6 +214,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",
@@ -199,6 +231,9 @@ matchData = [
         "damageToChampions" : "",
         "damageTaken" : "",
         "cs" : "" ,
+        "visionWardsBoughtInGame" : "",
+        "wardsKilled" : "",
+        "wardsPlaced" : "",
         "items" :
             {
                 0 : "", 1 : "",
@@ -206,6 +241,7 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
+        "win" : ""
     },
     {
         "team" : "",

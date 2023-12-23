@@ -1,8 +1,6 @@
 import "./App.css";
 import { ChampionInput, ChampionResult } from "./Page/ChampionSearch";
 import { UserInput, UserResult } from "./Page/UserSearch";
-import UserResulf from "./Page/UserResult";
-
 function App() {
   return (
     <div>

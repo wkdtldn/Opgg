@@ -7,11 +7,10 @@ import json
 import UserData;
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
+CORS(app)
 
-
-API_key = 'RGAPI-086af0b8-7e66-48bd-badb-9b06335a69b0';
+API_key = 'RGAPI-226b7e81-bef3-477f-aad1-c23379efa7e4';
 
 Data = {"puuid" : "", "gameName" : "" , "tagLine" : "", "id" : "", "summonerLevel" : "", "accountId" : "", "tier" : "", "rank" : "", "matchID" : ""}
 
@@ -27,30 +26,34 @@ class UserInfo:
         self.match = match
 
 
-@app.route('/',methods=['GET', 'POST'])
+@app.route('/', methods=["GET", "POST"])
 def main():
-    userName = "jolf"
-    userTag = "KR1"
-    res = requests.get("https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + userName + "/" + userTag + "?api_key=" + API_key)
-    if res.status_code == 200:
-        user_info_collect(res,"puuid")
-        user_info_collect(res,"gameName")
-        user_info_collect(res,"tagLine")
-        res = requests.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + userName + "?api_key=" + API_key)
-        user_info_collect(res,"id")
-        user_info_collect(res,"accountId")
-        user_info_collect(res,"summonerLevel")
-        res = requests.get("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + Data["id"] + "?api_key=" + API_key)
-        user_info_collect(res, "tier")
-        user_info_collect(res, "rank")
-        res = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/" + Data["puuid"] +"/ids?type=normal&count=1&api_key=" + API_key)
-        match_info_collect(res, "matchID")        
-        res_match = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + match["matchID"] + "?api_key=" + API_key)
-        match_info_collect(res_match, "matchInfo")
-        UserData.user_data_set(Data)
-        return json.dumps(UserData.match_data_set(match),ensure_ascii = False)
-    else:
-        return jsonify({'Result' : False})
+    if request.method == "POST":
+        print("POST")
+        data = request.get_json()
+        print(data)
+        userName = data["Name"]
+        userTag = data["Tag"]
+        res = requests.get("https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + userName + "/" + userTag + "?api_key=" + API_key)
+        if res.status_code == 200:
+            user_info_collect(res,"puuid")
+            user_info_collect(res,"gameName")
+            user_info_collect(res,"tagLine")
+            res = requests.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + userName + "?api_key=" + API_key)
+            user_info_collect(res,"id")
+            user_info_collect(res,"accountId")
+            user_info_collect(res,"summonerLevel")
+            res = requests.get("https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + Data["id"] + "?api_key=" + API_key)
+            user_info_collect(res, "tier")
+            user_info_collect(res, "rank")
+            res = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/" + Data["puuid"] +"/ids?type=normal&count=1&api_key=" + API_key)
+            match_info_collect(res, "matchID")        
+            res_match = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + match["matchID"] + "?api_key=" + API_key)
+            match_info_collect(res_match, "matchInfo")
+            UserData.user_data_set(Data)
+            return json.dumps(UserData.match_data_set(match),ensure_ascii = False)
+        else:
+            return jsonify({'Result' : False})
 
 def user_info_collect(item, name):
     data = item.text
@@ -69,5 +72,5 @@ def match_info_collect(item,name):
         match[name] = data[0]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
