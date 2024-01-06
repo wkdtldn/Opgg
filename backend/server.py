@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 CORS(app)
 
-API_key = 'RGAPI-7468a1bc-a32a-4da3-947a-560bc014d6b6';
+API_key = 'MY_API_KEY';
 
 Data = {"puuid" : "", "gameName" : "" , "tagLine" : "", "id" : "", "summonerLevel" : "", "accountId" : "", "tier" : "", "rank" : "", "matchID" : ""}
 
