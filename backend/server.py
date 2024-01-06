@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 CORS(app)
 
-API_key = 'RGAPI-226b7e81-bef3-477f-aad1-c23379efa7e4';
+API_key = 'RGAPI-7468a1bc-a32a-4da3-947a-560bc014d6b6';
 
 Data = {"puuid" : "", "gameName" : "" , "tagLine" : "", "id" : "", "summonerLevel" : "", "accountId" : "", "tier" : "", "rank" : "", "matchID" : ""}
 
@@ -51,7 +51,7 @@ def main():
             res_match = requests.get("https://asia.api.riotgames.com/lol/match/v5/matches/" + match["matchID"] + "?api_key=" + API_key)
             match_info_collect(res_match, "matchInfo")
             UserData.user_data_set(Data)
-            return json.dumps(UserData.match_data_set(match),ensure_ascii = False)
+            return json.dumps({"match" : UserData.match_data_set(match), "user" : UserData.userInfo})
         else:
             return jsonify({'Result' : False})
 
