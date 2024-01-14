@@ -1,0 +1,28 @@
+puuid = ACCOUNT-V1/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}
+
+summonerid = id
+
+id = SUMMOR-V4/lol/summoner/v4/summoners/by-name/{summonerName}
+
+encrytedPUUID = puuid
+
+matchId = MATCH-V5/lol/match/v5/matches/by-puuid/{puuid}/ids
+
+need = 아이템 번호로 사진 추출
+
+
+- user_information
+	- gameName + tagLine = ACCOUNT-V1/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}
+	- userLevel = SUMMONER-V4/lol/summoner/v4/summoners/by-name/{summonerName}
+	- Tier
+		- 티어 사진 가져오기 링크(https://opgg-static.akamaized.net/images/medals_new/${티어}.png?image=q_auto,f_webp,w_144&v=1702977255104)
+	- Match Info
+		- 아이템 사진 가져오기 링크(https://opgg-static.akamaized.net/meta/images/lol/item/{아이템 번호}.png?image=q_auto,f_webp,w_64,h_64&v=1700641403304)
+		- 스펠 사진 가져오기 링크(https://opgg-static.akamaized.net/meta/images/lol/spell/{스펠 이름}.png?image=q_auto,f_webp,w_64,h_64&v=1700641403304)
+		- 오브젝트 사진 가져오기 링크(https://s-lol-web.op.gg/images/icon/icon-{오브젝트 이름 ex) baron, tower, dragon}-r.svg?v=1700641403304)
+		- 챔피언 사진 가져오기 링크(https://opgg-static.akamaized.net/meta/images/lol/champion/{챔피언 이름 ex) Akali}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_160,h_160&v=1700641403304)
+		- 룬 사진 가져오기 링크(주요룬 : https://opgg-static.akamaized.net/meta/images/lol/perk/{룬 번호}.png?image=q_auto,f_webp,w_64,h_64&v=1700641403304,
+								보조준 : https://opgg-static.akamaized.net/meta/images/lol/perkStyle/{룬 번호}.png?image=q_auto,f_webp,w_64,h_64&v=1700641403304)
+
+
+css : https://www.figma.com/
