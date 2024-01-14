@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UserResult from "./UserResult";
+import UserResult from "../Hooks/UserResult";
 
 function Player() {
   const [text, setText] = useState("");
   const [userData, setUserData] = useState({ user: "", match: "" });
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  useEffect(() => {}, [userData]);
   const handleChange = (event) => {
     setText(event.target.value);
     console.log(text);

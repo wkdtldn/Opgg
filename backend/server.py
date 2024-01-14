@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 CORS(app)
 
-API_key = 'RGAPI-9232c512-649d-436e-a4dd-09d645e7572b';
+API_key = 'RGAPI-41e83b42-d38c-40c1-ab62-cf1854b6597e';
 
 Data = {"puuid" : "", "gameName" : "" , "tagLine" : "", "id" : "", "summonerLevel" : "", "accountId" : "", "tier" : "", "rank" : "", "matchID" : ""}
 
@@ -34,6 +34,9 @@ def main():
         print(data)
         userName = data["Name"]
         userTag = data["Tag"]
+        print(userName, userTag)
+        print(type(userName), type(userTag))
+        print("https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + userName + "/" + userTag + "?api_key=" + API_key)
         res = requests.get("https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + userName + "/" + userTag + "?api_key=" + API_key)
         if res.status_code == 200:
             user_info_collect(res,"puuid")
@@ -58,6 +61,9 @@ def main():
 def user_info_collect(item, name):
     data = item.text
     data = json.loads(data)
+    if data == []:
+        Data["name"] = None
+        return
     if str(type(data)) == "<class 'dict'>":
         Data[name] = data[name]
     else:
