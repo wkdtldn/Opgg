@@ -52,7 +52,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+
     },
     {
         "team" : "",
@@ -79,7 +81,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+
     },
     {
         "team" : "",
@@ -106,7 +110,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+        
     },
     {
         "team" : "",
@@ -133,7 +139,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+        
     },
     {
         "team" : "",
@@ -160,7 +168,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+        
     },
     {
         "team" : "",
@@ -187,7 +197,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+        
     },
     {
         "team" : "",
@@ -214,7 +226,8 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : ""
     },
     {
         "team" : "",
@@ -241,7 +254,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
+        "win" : "",
+        "playtime" : "" 
+        
     },
     {
         "team" : "",
@@ -268,9 +283,9 @@ matchData = [
                 4 : "", 5 : "",
                 6 : ""
             },
-        "win" : ""
-    },
-    { "playtime" : "" }
+        "win" : "",
+        "playtime" : "" 
+    }
 ] 
 
 def user_data_set(data):
@@ -301,7 +316,8 @@ def match_data_set(data):
         matchData[i]["wardsKilled"] = data["matchInfo"]["info"]["participants"][i]["wardsKilled"]
         matchData[i]["wardsPlaced"] = data["matchInfo"]["info"]["participants"][i]["wardsPlaced"]
         matchData[i]["win"] = data["matchInfo"]["info"]["participants"][i]["win"]
+        matchData[i]["playtime"] = data["matchInfo"]["info"]["participants"][i]["timePlayed"] // 0.6
         for j in range(7):
             matchData[i]["items"][j] = data["matchInfo"]["info"]["participants"][i]["item" + str(j)]
-        matchData[10]["playtime"] = data["matchInfo"]["info"]["participants"][i]["timePlayed"] // 0.6
+        
     return matchData

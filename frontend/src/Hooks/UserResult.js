@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, Col } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import "../App.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+// import Accordion from "react-bootstrap/Accordion";
+// import { useAccordionButton } from "react-bootstrap/AccordionButton";
+// import Card from "react-bootstrap/Card";
 
 function UserResult(props) {
   const imageTag = (tag, playerIndex, iteamIndex) => {
@@ -19,6 +25,21 @@ function UserResult(props) {
       // }
     }
   };
+  const styles = (status, name) => {
+    if (status === true) {
+      if (name === props.data.user.name) {
+        return "playerWrapper minWin";
+      } else {
+        return "playerWrapper win";
+      }
+    } else {
+      if (name === props.data.user.name) {
+        return "playerWrapper minLose";
+      } else {
+        return "playerWrapper lose";
+      }
+    }
+  };
   if (props.data.user !== "") {
     return (
       <div>
@@ -26,45 +47,43 @@ function UserResult(props) {
           <p>{JSON.stringify(props.data.user)}</p>
           <div></div>
           <div>
-            <img
-              // src={`https://opgg-static.akamaized.net/images/medals_new/${props.data.user.tier}.png?image=q_auto,f_webp,w_144&v=1702977255104`}
-              src={imageTag("tier")}
-              width="8%"
-              alt="TIER"
-            ></img>
+            <img src={imageTag("tier")} width="8%" alt="TIER"></img>
           </div>
           <p>{JSON.stringify(props.data.match)}</p>
           <div>
             <h2>전적 들어갈 부분</h2>
             <hr />
-            <div className="border">
+            <div>
               {/* Blue Team  == 승리여부 확인과 함께 */}
               <div>
                 {/* Player */}
                 {props.data.match.map((player, index) => (
-                  <Container fluid key={index}>
+                  <Container
+                    key={index}
+                    className={styles(player.win, player.name)}
+                  >
                     {/* Champion */}
-                    <Col className="item">
-                      <div>
-                        <img
-                          src={imageTag("champion", index)}
-                          width="3%"
-                          alt="champion"
-                        ></img>
-                      </div>
-                    </Col>
+                    <img
+                      className="playerInfo"
+                      src={imageTag("champion", index)}
+                      width="32px"
+                      height="32px"
+                      style={{
+                        borderRadius: "150 / 2",
+                        overflow: "hidden",
+                        borderWidth: "3",
+                      }}
+                      alt={player.championName}
+                    ></img>
                     {/* PlayerName */}
-                    <Col className="item">
-                      <p>{player.name}</p>
+                    <Col>
+                      <Row className="playerInfo">{player.name}</Row>
+                      <Row className="playerInfo">#{player.tag}</Row>
                     </Col>
-                    {/* KDA */}
-                    <Col className="item">
-                      <p>
-                        {player.kills} / {player.deaths} / {player.assists}
-                      </p>
-                    </Col>
+                    <span className="playerInfo">
+                      {player.kills} / {player.deaths} / {player.assists}
+                    </span>
                     {/* Item */}
-                    <div></div>
                   </Container>
                 ))}
               </div>

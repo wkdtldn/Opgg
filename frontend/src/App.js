@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Player from "./Components/UserSearch";
 
 class App extends React.Component {

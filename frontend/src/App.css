@@ -6,11 +6,30 @@
   height: 40vmin;
   pointer-events: none;
 }
-
-.border {
-  background-color: rgb(125, 125, 125);
+.playerWrapper {
+  display: flex;
+  font-size: 13px;
 }
-
+.playerTag {
+  color: #9aa4af;
+  font-size: 11px;
+  line-height: 14px;
+}
+.playerInfo {
+  padding: 5px;
+}
+.minWin {
+  background-color: rgb(140, 140, 255);
+}
+.minLose {
+  background-color: rgb(252, 140, 140);
+}
+.win {
+  background-color: rgb(170, 170, 255);
+}
+.lose {
+  background-color: rgb(255, 170, 170);
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
