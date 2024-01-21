@@ -40,6 +40,7 @@ function Player() {
   return (
     <div>
       <input
+        className="search"
         onChange={handleChange}
         name="text"
         onKeyDown={onEnterKeyDown}

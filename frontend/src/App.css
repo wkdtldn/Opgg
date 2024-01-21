@@ -1,61 +1,63 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-.playerWrapper {
+.contents {
   display: flex;
   font-size: 13px;
+  align-items: center;
+  font-family: "Apple SD Gothic Neo", "__Roboto_2d0052",
+    "__Roboto_Fallback_2d0052", sans-serif, system-ui, sans-serif;
+  width: 100%;
+}
+.table {
+  width: 100%;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.playerName {
+  text-overflow: ellipsis;
+  color: #202d37;
+}
+.item {
+  display: inline-block;
+}
+.resetImage {
+  width: 1500px;
+}
+.itemImage {
+  border-radius: 3px;
+  width: 24px;
 }
 .playerTag {
   color: #9aa4af;
   font-size: 11px;
   line-height: 14px;
 }
+.champion {
+  padding-left: 10px;
+  padding-right: 4px;
+}
+.ChampionImage {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
 .playerInfo {
   padding: 5px;
 }
 .minWin {
-  background-color: rgb(140, 140, 255);
+  background-color: #b3cdff;
 }
 .minLose {
-  background-color: rgb(252, 140, 140);
+  background-color: #ffbac3;
 }
 .win {
-  background-color: rgb(170, 170, 255);
+  background-color: #d5e3ff;
 }
 .lose {
-  background-color: rgb(255, 170, 170);
+  background-color: #ffd8d9;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.noItem {
+  width: 24px;
+  height: 24px;
+  background-color: #b3cdff;
 }
