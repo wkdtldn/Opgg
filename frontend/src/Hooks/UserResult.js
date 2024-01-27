@@ -52,7 +52,6 @@ function UserResult(props) {
     return (
       <div>
         <div>
-          <p>{JSON.stringify(props.data.user)}</p>
           <Container>
             <Col>
               <Row>
@@ -70,8 +69,6 @@ function UserResult(props) {
           </Container>
           <p>{JSON.stringify(props.data)}</p>
           <div>
-            <h2>전적 들어갈 부분</h2>
-            <hr />
             <div>
               {/* Blue Team  == 승리여부 확인과 함께 */}
               <table className="table">
@@ -181,16 +178,7 @@ function UserResult(props) {
       </div>
     );
   } else {
-    return (
-      <div>
-        <h1>플레이어를 검색해주세요</h1>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLcN6Og1idKRsHDP7_tDdbDDp2GhGoYyx8Gg&usqp=CAU"
-          alt="행복하다"
-          className="resetImage"
-        ></img>
-      </div>
-    );
+    return false;
   }
 }
 export default UserResult;
